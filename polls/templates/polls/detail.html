@@ -1,1 +1,6 @@
-{{question}}
+<h3>{{question.question_text}}</h3>
+<ul>
+{% for choice in question.choice_set.all %}
+    <li><font color='green'>{{choice.choice_text}}</font></li>
+{% endfor %}
+</ul>

@@ -3,7 +3,7 @@ from polls import views
 
 urlpatterns = patterns('', 
     url(r'^$', views.index, name='index'),
-    url(r'^[a-d]$', views.index1, name='index1'),#test
+    #url(r'^[a-d]$', views.index1, name='index1'),#test
     #ex: /polls/5/
     url(r'^(?P<question_id>\d+)/$', views.detail, name='detail'),
     #ex: /polls/5/results/
