@@ -1,0 +1,13 @@
++++views-votes:+++
+What is your name?
+{'_state': <django.db.models.base.ModelState object at 0x7feca61cf400>, 'pub_date': datetime.datetime(2015, 1, 9, 19, 26, 48, tzinfo=<UTC>), 'question_text': 'What is your name?', 'id': 6}
+
+selected_choice:Denis type :<class 'polls.models.Choice'>
+
+dict -> {'choice_text': 'Denis', '_state': <django.db.models.base.ModelState object at 0x7feca5f72cc0>, 'votes': 3, '_question_cache': <Question: What is your name?>, 'question_id': 6, 'id': 29}
+
+
+HttpResponseRedirect: <django.http.response.HttpResponseRedirect object at 0x7feca61eacf8>
+
+{'_handler_class': None, 'cookies': <SimpleCookie: >, 'reason_phrase': 'FOUND', '_closable_objects': [], '_charset': 'utf-8', '_container': [b''], '_headers': {'content-type': ('Content-Type', 'text/html; charset=utf-8'), 'location': ('Location', '/polls/6/results/')}}
+----views - votes----
