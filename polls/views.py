@@ -34,13 +34,14 @@ def vote(request, question_id):
     #return HttpResponse("You're voting on question %s." % question_id)
     p = get_object_or_404(Question, pk=question_id)
     f=open(os.path.join(BASE_DIR, 'logfile1'),'w+')
-    f.write("+++views-votes:+++\n"+str(p)+"\n")
+    f.write("+++views-votes:+++\n"+str(p)+str(type(p))+"\nxxxxxxxx\n")
     #f.write(("len:",len(p)))
     f.write(str(p.__dict__))
     try:
         selected_choice = p.choice_set.get(pk=request.POST['choice'])
         f.write("\n\nselected_choice:"+str(selected_choice)+" type :"+
-                str(selected_choice.__class__)+"\n\ndict -> "+str(selected_choice.__dict__))
+                str(selected_choice.__class__)+"\nDdict -> "+str(selected_choice.__dict__))
+        f.write("\n!!!!!!\nRequesttt:"+ str(request))
     except (KeyError, Choice.DoesNotExist):
         #Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
