@@ -9,6 +9,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
+
 # Create your views here.
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:4]
@@ -27,8 +28,10 @@ def detail(request, question_id):
     #return HttpResponse("You're looking at question %s." % question_id)
 
 def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
+    #response = "You're looking at the results of question %s."
+    question=get_object_or_404(Question, pk=question_id)
+    #return HttpResponse(response % question_id)
+    return render(request, 'polls/results.html', {'question': question})
 
 def vote(request, question_id):
     #return HttpResponse("You're voting on question %s." % question_id)
@@ -61,6 +64,37 @@ def vote(request, question_id):
         f.close()
         return HRR
         
+
+#=============my try:===============
+#import re
+def test1(request):
+    response = HttpResponse("Text only, please.")
+    response_redir=HttpResponseRedirect("Text, please.") 
+    f=open(os.path.join(BASE_DIR, 'log_test1'),'w+')
+    f.write("Request:  \n"+str(request.COOKIES.values())+">>\n\n"+
+            str(request.get_host())+"- request.get_host()\n\n"+
+            str(request.get_full_path())+"<-get_full_path\n\n"+
+            str(request.is_secure())+"<-request.is_secure()\n\n"+
+            "Type:"+str(type(request))+"\n"+
+            str(request)+"\n\n"+str(request.__dict__)[0])
+    f.write("\n========================\nResponSe:\n")
+    f.write(str(response)+"\n\n"+str(response.__dict__)+"\n\n"+
+            str(type(response))+"<-Type\n\n"+
+            str(response.status_code)+" <-status_code\n\n"+
+            str(response.content)+" <-response_content\n\n"+
+            str(response.streaming)+" -streaming\n\n"+
+            str(response.reason_phrase)+" reason_phrase\n\n")
+            
+            
+    f.close()
+    #return response
+    #return response_redir
+    return render(request, 'polls/test-test1.html', {
+        #'question': p,
+        'error_message': "You didn't select a choice.",
+        'request_path': request.path,
+        })
+
     
 
 
