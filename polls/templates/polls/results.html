@@ -6,7 +6,7 @@
     </li>
 {%endfor%}
 </ul>
-question{{question.choice_set.all}}
+{#question{{question.choice_set.all}}  #}
 
 <br><br>
 <a href="{% url 'polls:detail' question.id%}">Vote again?</a>

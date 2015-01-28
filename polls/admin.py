@@ -14,10 +14,10 @@ class QuestionAdmin(admin.ModelAdmin):
         #(None, {'fields': ['pub_date']})
     ]
     inlines = [ChoiceInline]
-    list_display = ('question_text', 'was_published_recently', 'pub_date')
+    list_display = ('question_text', 'pub_date', 'was_published_recently')
     list_filter = ['pub_date']
     search_fields = ['question_text']
-    list_per_page = 2
+    list_per_page = 10
 
 
 admin.site.register(Question, QuestionAdmin)
