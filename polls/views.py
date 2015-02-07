@@ -6,7 +6,9 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from django.views import generic
 
-from polls.models import Choice, Question
+#Is better to use reletive import instead of hardcoded import:
+#from polls.models import Choice, Question # <-hardcorded import
+from .models import Choice, Question
 
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
